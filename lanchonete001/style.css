@@ -1,51 +1,66 @@
-*, *:before, *::after { /* força a ter 1200px ao invés de 1240px */
+*, *:before, *::after{
     box-sizing: border-box;
 }
+:root {
+    --cor-primaria: #f09a1f;
+    --cor-texto: #333;
+}
+body{
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+}
 .header-principal{
-    width: 100%;
-    background-color: #f09a1f; /* tom laranja do site */
+    background-color: #F09a1f;
 }
 .logo{
     height: 60px;
     width: auto;
 }
-/* caixa para centralizar tudo */
 .container{
-    max-width: 1200px; /*largura máxima do site */
-    margin: 0 auto; /* centraliza na tela */
-    padding: 0 20px; /* margem de segurança */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
-.header-principal .container{ /* separando para não quebrar no futuro, lembrar disso */
+.header-principal .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    min-height: 80px;
 }
-.menu{
+.menu {
     display: flex;
-    gap: 20px; /* Espaço entre os items */
+    gap: 20px;
 }
 .menu a{
     text-decoration: none;
     color: #333;
     font-weight: bold;
     font-size: 15px;
-    padding: 5px 4px; /* cria uma área clicável no texto */
-    border-radius: 4px;   /* arredonda levemente para o efeito de foco */
-
-    transition: all 0.3s ease; /* transição para não mudar do nada */
+    padding: 5px 4px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 .menu a:hover{
-    color: #ffffff ;/* texto muda para branco para dar destaque */
-    background-color: rgba(0, 0, 0, 0.15) /* sombra transparente no fundo */
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.15);
 }
 .menu a:focus{
-    outline: none; /*remove a borda padrão do navegador */
+    outline: none;
     color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.25); /* Fundo um pouco mais marcado */
-    box-shadow: 0 0 0 2px #ffffff; /* adicional um anel de foco branco elegante */ 
+    background-color: rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 0 2px #ffffff;
 }
-body{
-    font-family: "Open Sans", sans-serif;
-    margin: 0;
+/* responsivo (manter sempre por último não esquecer) */
+@media (max-width: 480px){
+    .header-principal .container{
+        flex-direction: column; /* empilha logo e menu */
+        justify-content: center;
+        gap: 10px;
+        padding: 10px 20px;
+    }
+    .menu{
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
